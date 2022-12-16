@@ -10,10 +10,12 @@ const Card = ({ characters }) => {
           key={id}
           className=" card-container col-lg-4 col-md-6 col-sm-6 col-12 p-2"
         >
-          <img className="card-img" src={image} alt=""></img>
-          <p>{name}</p>
-          <p>last seen: {location.name}</p>
-          <p>{status}</p>
+          <article className="card-content text-center">
+            <img className="card-img" src={image} alt=""></img>
+            <p>{name}</p>
+            <p>last seen: {location.name}</p>
+            <p>{status}</p>
+          </article>
         </div>
       );
     });

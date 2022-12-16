@@ -1,2 +1,8 @@
 .card-container {}
-.card-img {}
+.card-content {
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+}
+.card-img {
+    border-radius: 1rem;
+}
