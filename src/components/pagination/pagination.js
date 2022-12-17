@@ -1,5 +1,5 @@
 const Pagination = () => {
-  return <footer>im footer</footer>;
+  return <footer>im pagination</footer>;
 };
 
 export default Pagination;

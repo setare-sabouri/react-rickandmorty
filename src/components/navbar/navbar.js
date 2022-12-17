@@ -1,10 +1,11 @@
-import portal from "../../Assets/portal.png";
+import portalImg from "../../Assets/portal.png";
+import { NavLink, Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="#">
-        <img src={portal} width="50" height="50" alt=""></img>
-      </a>
+      <NavLink to="/" className="navbar-brand">
+        <img src={portalImg} width="50" height="50" alt=""></img>
+      </NavLink>
       <button
         className="navbar-toggler"
         type="button"
@@ -18,9 +19,15 @@ const Navbar = () => {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        {/* <NavLink to="/" className="nav-link">
+        <NavLink to="/Home" className="nav-link">
           Characters
-        </NavLink> */}
+        </NavLink>
+        <NavLink to="/episodes" className="nav-link">
+          Episode
+        </NavLink>
+        <NavLink to="/Location" className="nav-link">
+          Locations
+        </NavLink>
       </div>
     </nav>
   );

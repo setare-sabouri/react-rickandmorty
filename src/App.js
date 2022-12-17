@@ -7,15 +7,17 @@ import React, { useState, useEffect } from "react";
 import Card from "./components/card/card";
 import Navbar from "./components/navbar/navbar";
 import Pagination from "./components/pagination/pagination";
-// import Location from "./pages/locations";
-// import Episodes from "./pages/episodes";
+import Location from "./pages/locations/locations";
+import Episodes from "./pages/episodes/episodes";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar></Navbar>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/Location" element={<Location />} />
       </Routes>
     </BrowserRouter>
   );
@@ -23,7 +25,8 @@ function App() {
 const Home = () => {
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
-  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${1}`;
+
+  let apiUrl = `https://rickandmortyapi.com/api/character/?page=1`;
 
   useEffect(() => {
     (async function () {
@@ -34,19 +37,17 @@ const Home = () => {
   }, [apiUrl]); //watch on apiUrl
 
   return (
-    <div className="main-wrapper">
-      <main className="container d-flex flex-column gap-3">
-        <h1 className="text-center">Characters</h1>
-        <div className="row">
-          <div className=" col-12">
-            <div className="row">
-              <Card characters={results}></Card>
-            </div>
+    <main className="container d-flex flex-column gap-3">
+      <h1 className="text-center">Characters</h1>
+      <div className="row">
+        <div className=" col-12">
+          <div className="row">
+            <Card characters={results}></Card>
           </div>
         </div>
-      </main>
+      </div>
       <Pagination></Pagination>
-    </div>
+    </main>
   );
 };
 export default App;
