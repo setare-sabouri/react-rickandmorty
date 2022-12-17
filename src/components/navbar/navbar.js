@@ -1,6 +1,4 @@
 import portal from "../../Assets/portal.png";
-import { NavLink, Link } from "react-router-dom";
-
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">

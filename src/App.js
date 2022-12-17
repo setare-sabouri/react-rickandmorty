@@ -1,15 +1,30 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-import React, { useState, useEffect } from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+
 import Card from "./components/card/card";
 import Navbar from "./components/navbar/navbar";
+import Pagination from "./components/pagination/pagination";
+// import Location from "./pages/locations";
+// import Episodes from "./pages/episodes";
 
 function App() {
-  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${1}`;
+  return (
+    <BrowserRouter>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+const Home = () => {
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
-  console.log(info);
+  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${1}`;
+
   useEffect(() => {
     (async function () {
       let src = await fetch(apiUrl);
@@ -20,20 +35,18 @@ function App() {
 
   return (
     <div className="main-wrapper">
-      <Navbar></Navbar>
       <main className="container d-flex flex-column gap-3">
         <h1 className="text-center">Characters</h1>
         <div className="row">
-          Filter component will be placed here
-          <div className="col-lg-8 col-12">
+          <div className=" col-12">
             <div className="row">
               <Card characters={results}></Card>
             </div>
           </div>
         </div>
       </main>
+      <Pagination></Pagination>
     </div>
   );
-}
-
+};
 export default App;
