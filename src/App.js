@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <main className="container d-flex flex-column gap-3">
-      <h1 className="text-center">Characters</h1>
+      <h1 className="text-center my-3">Characters</h1>
       <div className="row">
         <div className=" col-12">
           <div className="row">
