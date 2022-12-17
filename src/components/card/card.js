@@ -14,7 +14,7 @@ const Card = ({ characters }) => {
             <img className="card-img" src={image} alt=""></img>
             <p>{name}</p>
             <p>last seen: {location.name}</p>
-            <p>{status}</p>
+            <p className="badge">{status}</p>
           </article>
         </div>
       );
