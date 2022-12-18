@@ -1,9 +1,10 @@
 import portalImg from "../../Assets/portal.png";
 import { NavLink, Link } from "react-router-dom";
+import "./navbar.css";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg container d-flex border-bottom">
-      <NavLink to="/" className="navbar-brand">
+    <nav className="navbar navbar-expand-lg container d-flex">
+      <NavLink to="/Home" className="navbar-brand">
         <img src={portalImg} width="50" height="50" alt=""></img>
       </NavLink>
       <button

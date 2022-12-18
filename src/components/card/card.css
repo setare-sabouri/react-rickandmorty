@@ -1,8 +1,11 @@
 .card-container {}
+
 .card-content {
     border: 0.2rem solid black;
     border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
+
 .card-img {
-    border-radius: 1rem;
+    border-radius: 0.8rem 0.8rem 0 0;
 }
