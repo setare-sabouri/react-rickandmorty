@@ -1,4 +1,5 @@
 import Card from "../card/card";
+import Pagination from "../pagination/pagination";
 const Home = ({ results }) => {
   return (
     <main className="container d-flex flex-column gap-3">
@@ -6,6 +7,7 @@ const Home = ({ results }) => {
       <div className="row col-12 m-1">
         <Card characters={results}></Card>
       </div>
+      <Pagination></Pagination>
     </main>
   );
 };

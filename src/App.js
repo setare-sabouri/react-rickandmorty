@@ -6,14 +6,14 @@ import React, { useState, useEffect } from "react";
 import Home from "./components/home/Home";
 
 import Navbar from "./components/navbar/navbar";
-
 import Location from "./pages/locations/locations";
 import Episodes from "./pages/episodes/episodes";
 
 function App() {
-  let apiUrl = `https://rickandmortyapi.com/api/character/?page=1`;
+  let [page, updatePage] = useState(1);
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
+  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
 
   useEffect(() => {
     (async function () {
@@ -22,6 +22,7 @@ function App() {
       updateFetchedData(data);
     })();
   }, [apiUrl]); //watch on apiUrl
+
   return (
     <BrowserRouter>
       <Navbar />
