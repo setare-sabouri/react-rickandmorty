@@ -1,7 +1,7 @@
 import Card from "../card/card";
 import Pagination from "../pagination/pagination";
 
-const Home = ({ results, info, page, setPage }) => {
+const Home = ({ info, results, page, setPage }) => {
   console.log(results);
   console.log(info);
   console.log("page is " + page);
@@ -11,7 +11,11 @@ const Home = ({ results, info, page, setPage }) => {
       <div className="row col-12 m-1">
         <Card characters={results}></Card>
       </div>
-      <Pagination page={page} setPage={setPage}></Pagination>
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={info.pages}
+      ></Pagination>
     </main>
   );
 };

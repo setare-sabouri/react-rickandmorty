@@ -30,7 +30,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Home results={results} info={info} page={page} setPage={setPage} />
+            <Home info={info} results={results} page={page} setPage={setPage} />
           }
         />
         <Route path="/Home" element={<Home results={results} info={info} />} />

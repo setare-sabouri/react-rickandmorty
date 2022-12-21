@@ -1,13 +1,15 @@
-// import ReactPaginate from "react-paginate";
-import React, { useState } from "react";
-
 import ReactPaginate from "react-paginate";
-const Pagination = ({ page, setPage }) => {
+const Pagination = ({ page, setPage, totalPages }) => {
+  let changePage = (clicked) => {
+    console.log(clicked.selected + 1);
+    setPage(clicked.selected + 1);
+  };
   return (
     <ReactPaginate
       activePage={page}
-      totalItemsCount={450}
+      pageCount={totalPages}
       pageRangeDisplayed={5}
+      onPageChange={changePage}
       className="pagination justify-content-center my-4 gap-4"
       nextLabel="Next"
       previousLabel="Prev"
