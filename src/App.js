@@ -10,11 +10,11 @@ import Location from "./pages/locations/locations";
 import Episodes from "./pages/episodes/episodes";
 
 function App() {
-  let [page, updatePage] = useState(1);
+  let [page, setPage] = useState(3);
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
-  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
 
+  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
   useEffect(() => {
     (async function () {
       let src = await fetch(apiUrl);
@@ -27,7 +27,13 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/Home" element={<Home results={results} />} />
+        <Route
+          path="/"
+          element={
+            <Home results={results} info={info} page={page} setPage={setPage} />
+          }
+        />
+        <Route path="/Home" element={<Home results={results} info={info} />} />
         <Route path="/episodes" element={<Episodes />} />
         <Route path="/Location" element={<Location />} />
       </Routes>
