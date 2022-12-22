@@ -8,7 +8,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
     <ReactPaginate
       activePage={page}
       pageCount={totalPages}
-      pageRangeDisplayed={5}
+      pageRangeDisplayed={2}
       onPageChange={changePage}
       className="pagination justify-content-center my-4 gap-4"
       nextLabel="Next"

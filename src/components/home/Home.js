@@ -2,9 +2,6 @@ import Card from "../card/card";
 import Pagination from "../pagination/pagination";
 
 const Home = ({ info, results, page, setPage }) => {
-  console.log(results);
-  console.log(info);
-  console.log("page is " + page);
   return (
     <main className="container d-flex flex-column gap-3">
       <h1 className="text-center my-3">Characters</h1>

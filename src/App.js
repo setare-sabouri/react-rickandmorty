@@ -10,7 +10,7 @@ import Location from "./pages/locations/locations";
 import Episodes from "./pages/episodes/episodes";
 
 function App() {
-  let [page, setPage] = useState(3);
+  let [page, setPage] = useState(1);
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
 
@@ -33,7 +33,12 @@ function App() {
             <Home info={info} results={results} page={page} setPage={setPage} />
           }
         />
-        <Route path="/Home" element={<Home results={results} info={info} />} />
+        <Route
+          path="/Home"
+          element={
+            <Home info={info} results={results} page={page} setPage={setPage} />
+          }
+        />
         <Route path="/episodes" element={<Episodes />} />
         <Route path="/Location" element={<Location />} />
       </Routes>
