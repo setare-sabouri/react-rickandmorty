@@ -10,7 +10,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
       pageCount={totalPages}
       pageRangeDisplayed={2}
       onPageChange={changePage}
-      className="pagination justify-content-center my-4 gap-4"
+      className="pagination justify-content-center my-4 gap-4 "
       nextLabel="Next"
       previousLabel="Prev"
       previousClassName="btn btn-primary fs-5 prev"

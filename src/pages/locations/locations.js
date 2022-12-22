@@ -1,5 +1,5 @@
-console.log("in locations page");
 const Location = () => {
+  console.log("in location");
   return <div>in locations</div>;
 };
 

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "../../components/pagination/pagination";
-
+import Card from "../../components/card/card";
 const Episodes = () => {
-  let [fetchedData, updateFetchedData] = useState([]);
+  let [fetchedData, setFetchedData] = useState([]);
+  let [characters, setCharacters] = useState([]);
   let [episode, setEpisode] = useState(1);
   let apiUrl = `https://rickandmortyapi.com/api/episode/${episode}`;
 
@@ -10,19 +11,35 @@ const Episodes = () => {
     (async function () {
       let src = await fetch(apiUrl);
       let data = await src.json();
-      updateFetchedData(data);
+      setFetchedData(data);
+      let EpisodeCharacters = await Promise.all(
+        data.characters.map((charUrl) => {
+          return fetch(charUrl).then((res) => res.json());
+        })
+      );
+      setCharacters(EpisodeCharacters);
     })();
   }, [apiUrl]); //watch on apiUrl
   console.log(fetchedData);
+  console.log(characters);
   return (
-    <div>
-      <Pagination
-        page={fetchedData.id}
-        setPage={setEpisode}
-        totalPages={51}
-      ></Pagination>
-      episode {fetchedData.id}
-    </div>
+    <main className="container d-flex flex-column gap-3">
+      <h1 className="my-3 text-center">
+        Episode {fetchedData.id} released {fetchedData.air_date}
+      </h1>
+      <div className="row col-12">
+        {" "}
+        <Pagination
+          page={fetchedData.id}
+          setPage={setEpisode}
+          totalPages={51}
+        ></Pagination>
+      </div>
+      <section className="row col-12">
+        <h2> characters :</h2>
+        <Card characters={characters}></Card>
+      </section>
+    </main>
   );
 };
 
