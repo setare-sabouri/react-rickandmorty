@@ -1,7 +1,20 @@
 import Card from "../card/card";
 import Pagination from "../pagination/pagination";
+import React, { useState, useEffect } from "react";
+const Home = () => {
+  let [page, setPage] = useState(1);
+  let [fetchedData, updateFetchedData] = useState([]);
+  let { info, results } = fetchedData;
 
-const Home = ({ info, results, page, setPage }) => {
+  let apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  useEffect(() => {
+    (async function () {
+      let src = await fetch(apiUrl);
+      let data = await src.json();
+      updateFetchedData(data);
+    })();
+  }, [apiUrl]); //watch on apiUrl
+
   return (
     <main className="container d-flex flex-column gap-3">
       <h1 className="text-center my-3">Characters</h1>
@@ -11,7 +24,7 @@ const Home = ({ info, results, page, setPage }) => {
       <Pagination
         page={page}
         setPage={setPage}
-        totalPages={info.pages}
+        totalPages={info?.pages}
       ></Pagination>
     </main>
   );
