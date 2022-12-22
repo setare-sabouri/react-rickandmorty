@@ -1,5 +1,5 @@
-import Card from "../card/card";
-import Pagination from "../pagination/pagination";
+import Card from "../../components/card/card";
+import Pagination from "../../components/pagination/pagination";
 import React, { useState, useEffect } from "react";
 const Home = () => {
   let [page, setPage] = useState(1);
