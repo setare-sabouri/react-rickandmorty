@@ -1,16 +1,17 @@
 import ReactPaginate from "react-paginate";
-const Pagination = ({ page, setPage, totalPages }) => {
+const Pagination = ({ current, onChange, total }) => {
   let changePage = (clicked) => {
     console.log(clicked.selected + 1);
-    setPage(clicked.selected + 1);
+    onChange(clicked.selected + 1);
   };
   return (
+    // <div className="row">
     <ReactPaginate
-      activePage={page}
-      pageCount={totalPages}
+      className="pagination justify-content-center my-4 gap-4 "
+      activePage={current}
+      pageCount={total}
       pageRangeDisplayed={2}
       onPageChange={changePage}
-      className="pagination justify-content-center my-4 gap-4 "
       nextLabel="Next"
       previousLabel="Prev"
       previousClassName="btn btn-primary fs-5 prev"
@@ -19,6 +20,8 @@ const Pagination = ({ page, setPage, totalPages }) => {
       pageClassName="page-item"
       pageLinkClassName="page-link"
     />
+    // </div>
+
   );
 };
 

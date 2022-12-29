@@ -8,7 +8,7 @@ const Card = ({ characters }) => {
       return (
         <div
           key={id}
-          className=" card-container col-lg-4 col-md-6 col-sm-6 col-12 p-2"
+          className="card-container my-2 col-lg-4 col-md-6 col-sm-6 col-12 px-2"
         >
           <article className="card-content text-center">
             <img className="card-img" src={image} alt=""></img>

@@ -28,11 +28,10 @@ const Episodes = () => {
         Episode {fetchedData.id} released {fetchedData.air_date}
       </h1>
       <div className="row col-12">
-        {" "}
         <Pagination
-          page={fetchedData.id}
-          setPage={setEpisode}
-          totalPages={51}
+          current={fetchedData.id}
+          onChange={setEpisode}
+          total={51}
         ></Pagination>
       </div>
       <section className="row col-12">

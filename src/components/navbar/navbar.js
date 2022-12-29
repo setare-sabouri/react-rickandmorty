@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg container d-flex">
+    <nav className="navbar navbar-expand-lg container px-3">
       <NavLink to="/characters" className="navbar-brand">
         <img src={portalImg} width="50" height="50" alt=""></img>
       </NavLink>
@@ -18,7 +18,6 @@ const Navbar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <div className="navbar-nav fs-4 d-flex justify-content-end w-100 ">
           <NavLink to="/characters" className="nav-link">
