@@ -10,9 +10,17 @@ import { themeContext } from "./contexts/themecontext";
 
 function App() {
   const { Theme } = useContext(themeContext);
-  console.log(Theme);
+  const mkDark = () => {
+    document.body.style.backgroundColor = "black"
+    document.body.style.color = "white"
+  }
+  const mkLight = () => {
+    document.body.style.backgroundColor = "white"
+    document.body.style.color = "black"
+  }
   useEffect(() => {
-    { Theme ? document.body.style.backgroundColor = "black" : document.body.style.backgroundColor = "white" }
+    { Theme ? mkDark() : mkLight() }
+
   });
   return (
     <BrowserRouter>
