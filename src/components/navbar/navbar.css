@@ -1,3 +1,11 @@
 .navbar {
     border-bottom: 0.2rem solid black;
 }
+
+.checkBox {
+    display: none;
+}
+
+.checkBox img {
+    width: 200%;
+}

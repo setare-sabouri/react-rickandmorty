@@ -1,12 +1,29 @@
-import portalImg from "../../Assets/portal.png";
+import lightImg from "../../Assets/sunno.png";
+import darkImg from "../../Assets/sunSmile.png";
+
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
+import { themeContext } from "../../contexts/themecontext";
+import React, { useContext } from 'react'
+
 const Navbar = () => {
+  const { Theme, ToggleTheme } = useContext(themeContext);
   return (
     <nav className="navbar navbar-expand-lg container px-3">
-      <NavLink to="/characters" className="navbar-brand">
+      {/* <NavLink to="/characters" className="navbar-brand">
         <img src={portalImg} width="50" height="50" alt=""></img>
-      </NavLink>
+      </NavLink> */}
+      {/* <button onClick={ToggleTheme}>click</button> */}
+      <span>
+        <label >
+          <input
+            type="checkbox"
+            className="checkBox"
+            onChange={ToggleTheme}
+          />
+          <img src={Theme ? lightImg : darkImg}></img>
+        </label>
+      </span>
       <button
         className="navbar-toggler"
         type="button"
